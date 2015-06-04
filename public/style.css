@@ -1,0 +1,59 @@
+@charset "utf-8";
+
+object[type^="application/gas-events"] { display: none; }
+
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Calibri';
+}
+
+body {
+    background-color: rgb(174,167,159);
+    background-image: linear-gradient(135deg,rgb(174,167,159),#e8e8e8,rgb(174,167,159));
+/*    background-image: linear-gradient(135deg,#000 30%,#004000, #fff);*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+       
+    color: #fff;
+    
+    -webkit-user-select: none; /* Webkit */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* IE 10  */
+     /*Currently not supported in Opera but will be soon */
+    -o-user-select: none;
+    user-select: none;   
+}
+
+#macCursor {
+    height: 30px;
+    position: absolute;
+}
+
+#mouseinfo {
+    background-color: #eee;
+    height: 300px;
+    width: 1000px;
+    color: #000;
+    font-size: 30px;
+}
+
+
+header {
+    background-color: #333;
+    height: 80px;
+    margin-bottom: 5px;
+    text-align: center;
+    color: #fff;
+    font-size: 50px;
+    line-height: 80px;
+}
+
+section {
+    
+    
+}
+
+
+

@@ -1,0 +1,135 @@
+A lot of problems due to server crash might be solved with the client itself that will try to reconnect again, on going transfer will not be prejudice by a server crash
+
+CANT GO WITHOUT:
+
+-   Follow and participate bluemix, nodejs and webrtc events to talk about qeekme
+-   Once you improve it, talk to developers and tecnology sites about it
+
+
+
+CLIENT:
+
+-   Ensure https by verifiyng if the user typed https if not, redirect it to https
+-   Put google search keywords
+
+
+NEXT TODO:
+
+-   Use MongoDB (or other db) to handle session and connections ids
+-   Verify if is posible create app with current state of code
+-   Check what is chrome app to implement this system
+
+GENERAL TODO:
+
+-   If we use more than 1 instances of maestro, if someone connects ws to one of them, won't be able to talk to the other in the other instance
+-   Create system in case server crash, retrieve connections in the best way in a mode that the user do not feel
+-   Only after fix all issues with the current implementation we will think in next
+
+SERVER TODO:
+
+-   Use english and portugueses words as address
+-   Create turn servers with different bluemix accounts
+-   Periodic send isAlive data because bluemix is stucking connections up
+-   Must find away to implement lock in generating sessions to ensure not equal id is generated due to time issues (verify mongodb relation with this)
+-   If server crashes, for now, only clear session members
+-   Every period, a "session garbage collector" will act to kill sessions not active for at least 1 day
+-   Sessions become not active after the last user disconnects
+-   Verify whether there is chance of two connections got the same id due to enter in the same in the db
+-   Check someway for have a public id and private id for security issues for client id
+-   Create system to store recently used connection ids to prevent them to be used
+-	Verify which point it tried to send data to not connected socket that are making the server to crash
+-   Create system to keep negotiating accessKeys to be used to request the same conn id in case server crashs or any other error
+-   Maybe put qeek.me servers in more than one cloud
+-   Try find way to disacouple new host broadcast from idManager
+
+CLIENT TODO:
+
+----- NOW PRIORITIES  -----
+
+-   Put welcome screen in qeek.me, create english and portuguese pages now!
+-   Fix the error of exceeded quota (that means that chrome is not disposing the local storage temp files, must do this manually and files up to 5mb for example, should not use the local storage)
+-   Change the very first page due to small icons for recent sites in browsers be nice
+
+
+----- AFTER PRIORITIES  ----
+
+--future---
+App will have location of nearest server that would be updated constantly
+Every server would have a bank of page codes that would be updated constantly
+would have a concurrence system that low performance contributors would be put in check for another one
+Modelo "filial" qeek.me, para atingit global e sempre ter um server perto de voce ou para servir de turn ou vender qeek.me adapter q vai ser um pic para servir de servidor p qeekme verificar como modelo de roteamento funciona pelos isp's
+-   Create system of a "online" stream that will act has a turn server to pass data on for non supported qeek.me devices
+-------
+
+----WEBRTC----
+-   Verify the RTC protocols each browser uses and check the needs of set protocols contraints like fire fox protocol is by default unreliable
+-   Test unreliable transfer to see if it matches with hack to accelerate
+-   Test unordered unreliable transfer
+-   Implement system in case of rtc connection falls or a timeout expire without data chunk, cancel the download
+-   Must verify enhancements in the rtc connections
+--------------
+
+-   verify possibility of write blobs instead converted them to arraybuffer
+-   Remove all filesystem files when open
+-   Implement system to manage file upload to detect upload finalization
+-   Implement each device queue of file to be sent
+-   Create error page to be sent in case Id not exist
+-   generate timeout in case joinSession is not send by connected client, disconnect it
+-   Integrate with android system to create a "Transfer with Qeek.me" menu, (the way it is now, showing devices instead files, this must be done if some device is available, if not, it will show that there is no device available)
+-   Create better message if the browser is not capable
+
+-   The first time someone enter on the page, an about page will prompt describing it, and a dont show me again box will appear as well
+
+-   Finish the signaling and sessions address holders
+-   Check if is necessary to change the way the websockets exchange info
+
+-   Advertises while loading
+
+-   In the app, will have a similar address bar but with "qeek.me/" fixed and you will be able to write folder name only
+
+-   For a while test qeek.me with holding files into the memory
+
+-   Put message for the user do not close the page until the download is finish
+-   View about bootstrap, how heavy is it to get the website resposive; if so heavy, create your own way to do this
+
+
+-   Create menu for about stuff, change name etc
+-   Implement better screen for the desktop site
+-   implement title to the menu icons (like message and get the file) of qeek(verify if this is really need)
+
+-   Must check whether the browser is chrome last version and firefox last version... if not, block initialization(maybe use this cause individual api detection works better)
+
+
+-   Study whether is better to every connected client make it rtc connect to all clients in the room
+
+
+-   Must implement mode to cancel on progress download or stop it to continue later
+-   Implement logic to avoid allowance of same file being downloaded in parallel (to be understood) maybe because filesystem crashs
+
+-   Check how to implement reconnection in case of connection lost (WILL BE MADE IN THE ABOVE IMPLEMENTATION)
+-   Must implement mode to disconnect from server (is need in some cases, must remember which ones)
+-   Advertise based on engineering stuff, calculating time and getting to the result that for small files, qeek me is your best option
+-   Implement dynamic amount of chunks per packet and maybe dynamic chunk size due to network dynamic changes
+
+-   Must implement system to local files get download requests list to be accepted to cancel if needed and get statistics
+
+-   Implement system to calculate receiving data rate ,uploding and estimate download finalization
+-   use all functions that return operation result values to detect errors
+-   In case page is closed, got to register all opened sandbox file system to close them
+-   Verify if the local files beeing loaded at filesystem improve the system performance
+-   maybe chunks per ack when connecting to a celphone may be changed
+-   Check if a sandbox file already exists for this file, if so, keep wrinting on it where it stopped
+-   To verify if it is the same file, randomly read some parts of it and see if it matches
+-   Got to improve "message received recognizement"
+-   got to improve username receive to avoid accept a lot of spaces as chars
+-   Must have a timeout system to send chunks request in case some of them didnt arrive
+-   Request will be made every 16 chunks received
+-   if timeout expire, will request all the left chunks from the previous 16 chunks packet request
+
+-   Put advertise as icons in qeek.me
+
+
+NOT TO DO:
+
+-   Make app that will be in background, once you open qeek.me in the same network and drop the files on the celphone it will alert on phone and start receiving it, and in the future the user may register an account to have a permanent page
+-   put a sign in system to recognize by avatar or request user to select an avatar image from the pre loaded at the first time and select whether it is a phone, tablet pc etc to be recognized
